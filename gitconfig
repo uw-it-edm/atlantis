@@ -1,0 +1,4 @@
+[credential]
+        helper = /usr/local/bin/credentials.sh
+[url "https://"]
+        insteadOf = git://
