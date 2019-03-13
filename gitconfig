@@ -1,6 +1,11 @@
 [credential]
         helper = /usr/local/bin/credentials.sh
+        
 [url "https://"]
         insteadOf = git://
+        
 [url "https://github.com/"]
         insteadOf = git@github.com:
+        
+[url "https://github.com"]
+        insteadOf = ssh://git@github.com
