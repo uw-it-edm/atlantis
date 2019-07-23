@@ -15,3 +15,17 @@ workflows:
     apply:
       steps:
         - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt apply -no-color $PLANFILE
+  terragrunt-0-18:
+    plan:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.18 plan -no-color -out $PLANFILE 
+    apply:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.18 apply -no-color $PLANFILE
+  terragrunt-0-19:
+    plan:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.19 plan -no-color -out $PLANFILE 
+    apply:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.19 apply -no-color $PLANFILE
