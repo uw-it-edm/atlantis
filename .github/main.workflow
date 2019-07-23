@@ -11,5 +11,5 @@ action "filter-to-pr-open-synced" {
 action "Docker Build" {
   needs = ["filter-to-pr-open-synced"]
   uses = "actions/docker/cli@86ff551d26008267bb89ac11198ba7f1d807b699"
-  runs = "build"
+  args = "build -t uw-it-edm/atlantis ."
 }
