@@ -19,6 +19,9 @@ RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.19.9
 
 RUN ln -s /usr/local/bin/terragrunt-0.18 /usr/local/bin/terragrunt
 
+# TODO, remove once atlantis v0.8.4 is released
+RUN ln -s /home/atlantis/.atlantis/bin/terraform0.12.5 /usr/local/bin/terraform0.12.5
+
 RUN chmod +x /usr/local/bin/terragrunt*
 
 COPY atlantis.yaml /home/atlantis/atlantis.yaml

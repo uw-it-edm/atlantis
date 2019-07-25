@@ -3,6 +3,7 @@ repos:
   apply_requirements: [approved, mergeable]
 
   workflow: terragrunt
+  allowed_overrides: [workflow]
 
   allow_custom_workflows: false
 
