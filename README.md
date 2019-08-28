@@ -9,7 +9,7 @@ To build and tag the docker image, on your local machine
 
 ```
 # docker login 
-# docker build -t uwitedm/atlantis:v1.2.3
+# docker build -t uwitedm/atlantis:v1.2.3 .
 # docker push uwitedm/atlantis:v1.2.3
 
 ```
