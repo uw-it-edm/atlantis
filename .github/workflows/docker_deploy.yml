@@ -1,0 +1,21 @@
+on: create
+name: Deploy to docker hub
+jobs:
+  docker-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Docker Login
+      uses: actions/docker/login@master
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Docker Build
+      uses: actions/docker/cli@master
+      with:
+        args: build -t uw-it-edm/atlantis:${{ github.ref }} .
+    - name: Docker push
+      uses: actions/docker/cli@master
+      if: github.event.ref_type == 'tag'
+      with:
+        args: push uw-it-edm/atlantis:${{ github.ref }}
