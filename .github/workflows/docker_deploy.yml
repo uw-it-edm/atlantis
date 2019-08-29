@@ -13,11 +13,11 @@ jobs:
     - name: Docker Build
       uses: actions/docker/cli@master
       with:
-        args: build -t uwitedm/atlantis .
+        args: build -t atlantis .
     - name: Docker Tag
       uses: actions/docker/tag@master
       with:
-        args: uwitedm/atlantis uwitedm/atlantis --no-sha --no-latest
+        args: atlantis uwitedm/atlantis --no-sha --no-latest
     - name: Docker push
       uses: actions/docker/cli@master
       if: github.event.ref_type == 'tag'
