@@ -17,5 +17,5 @@ jobs:
     - name: Docker Build and push
       uses: actions/docker/cli-multi@master
       with:
-        args: ["build -t uw-it-edm/atlantis:${{GITHUB_REF}} ." , "push uw-it-edm/atlantis:${{GITHUB_REF}}"
+        args: ["build -t uw-it-edm/atlantis:${{GITHUB_REF}} ." , "push uw-it-edm/atlantis:${{GITHUB_REF}}"]
 
