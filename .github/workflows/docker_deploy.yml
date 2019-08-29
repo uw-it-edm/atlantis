@@ -1,0 +1,21 @@
+on: push
+name: Deploy to docker hub
+jobs:
+  docker-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: filter-to-pr-open-synced
+      uses: actions/bin/filter@master
+      with:
+        args: tag
+    - name: Docker Login
+      uses: actions/docker/login@master
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Docker Build and push
+      uses: actions/docker/cli-multi@master
+      with:
+        args: ["build -t uw-it-edm/atlantis:${{GITHUB_REF}} ." , "push uw-it-edm/atlantis:${{GITHUB_REF}}"
+
