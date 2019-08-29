@@ -1,14 +1,10 @@
-on: push
+on: create
 name: Deploy to docker hub
 jobs:
   docker-push:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: filter-to-pr-open-synced
-      uses: actions/bin/filter@master
-      with:
-        args: tag
     - name: Docker Login
       uses: actions/docker/login@master
       env:
@@ -20,5 +16,6 @@ jobs:
         args: build -t uw-it-edm/atlantis:${{ github.ref }} .
     - name: Docker push
       uses: actions/docker/cli@master
+      if: github.event.ref_type == 'tag'
       with:
         args: push uw-it-edm/atlantis:${{ github.ref }}
