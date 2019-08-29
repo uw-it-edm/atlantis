@@ -13,7 +13,7 @@ jobs:
     - name: Docker Build
       uses: actions/docker/cli@master
       with:
-        args: build uw-it-edm/atlantis .
+        args: build -t uw-it-edm/atlantis .
     - name: Docker Tag
       uses: actions/docker/tag@master
       with:
