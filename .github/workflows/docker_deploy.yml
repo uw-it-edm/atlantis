@@ -14,8 +14,11 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Docker Build and push
-      uses: actions/docker/cli-multi@master
+    - name: Docker Build
+      uses: actions/docker/cli@master
       with:
-        args: ["build -t uw-it-edm/atlantis:${{GITHUB_REF}} ." , "push uw-it-edm/atlantis:${{GITHUB_REF}}"]
-
+        args: build -t uw-it-edm/atlantis:${{GITHUB_REF}} .
+    - name: Docker push
+      uses: actions/docker/cli@master
+      with:
+        args: push uw-it-edm/atlantis:${{GITHUB_REF}}
