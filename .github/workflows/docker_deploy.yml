@@ -17,7 +17,7 @@ jobs:
     - name: Docker Tag
       uses: actions/docker/tag@master
       with:
-        args: uw-it-edm/atlantis uw-it-edm/atlantis --no-sha --no-ref
+        args: uw-it-edm/atlantis uw-it-edm/atlantis --no-sha --no-latest
     - name: Docker push
       uses: actions/docker/cli@master
       if: github.event.ref_type == 'tag'
