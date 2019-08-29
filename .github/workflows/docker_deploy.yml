@@ -13,9 +13,9 @@ jobs:
     - name: Docker Build
       uses: actions/docker/cli@master
       with:
-        args: build -t uw-it-edm/atlantis:${{ github.ref }} .
+        args: build -t uw-it-edm/atlantis:${{ github.event.ref }} .
     - name: Docker push
       uses: actions/docker/cli@master
       if: github.event.ref_type == 'tag'
       with:
-        args: push uw-it-edm/atlantis:${{ github.ref }}
+        args: push uw-it-edm/atlantis:${{ github.event.ref }}
