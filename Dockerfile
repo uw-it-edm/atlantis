@@ -12,8 +12,8 @@ RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.18.7
   && echo "3a45138e77fb41e0884b9491c67dcdeacd06418cd10a1e16ea0cc03976f1b288  /usr/local/bin/terragrunt-0.18" \
   | sha256sum -c
 
-RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.19.9/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt-0.19 \
-  && echo "9226cffc6b67b48c78e659b8ed1228e41b01c6fa4bd55e26e3b56c4d488db7ea  /usr/local/bin/terragrunt-0.19" \
+RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.19.23/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt-0.19 \
+  && echo "affff017c8a51843c3c0923c38bcf4bdaddbaa8dcb50dd7c089e4e08b0093874  /usr/local/bin/terragrunt-0.19" \
   | sha256sum -c
 
 
