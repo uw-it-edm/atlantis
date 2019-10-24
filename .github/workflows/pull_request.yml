@@ -1,15 +1,11 @@
-on: pull_request
+on:
+  pull_request:
+    types: [opened,synchronize]
 name: Docker build
 jobs:
   docker-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: filter-to-pr-open-synced
-      uses: actions/bin/filter@master
-      with:
-        args: action 'opened|synchronize'
     - name: Docker Build
-      uses: actions/docker/cli@86ff551d26008267bb89ac11198ba7f1d807b699
-      with:
-        args: build -t uw-it-edm/atlantis .
+      run: docker build -t uw-it-edm/atlantis .
