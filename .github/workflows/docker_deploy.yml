@@ -1,4 +1,6 @@
-on: create
+on:
+  release:
+    types: [created]
 name: Deploy to docker hub
 jobs:
   docker-push:
@@ -6,20 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker Login
-      uses: actions/docker/login@master
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login hub.docker.com -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
     - name: Docker Build
-      uses: actions/docker/cli@master
-      with:
-        args: build -t atlantis .
+      run: docker build -t atlantis .
     - name: Docker Tag
-      uses: actions/docker/tag@master
-      with:
-        args: atlantis uwitedm/atlantis --no-sha --no-latest
+      run: docker tag atlantis uwitedm/atlantis --no-sha --no-latest
     - name: Docker push
-      uses: actions/docker/cli@master
-      if: github.event.ref_type == 'tag'
-      with:
-        args: push uwitedm/atlantis
+      run: docker push uwitedm/atlantis
