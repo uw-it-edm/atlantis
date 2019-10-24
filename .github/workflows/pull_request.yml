@@ -1,5 +1,6 @@
-on: pull_request
-  types: [opened,synchronize]
+on:
+  pull_request:
+    types: [opened,synchronize]
 name: Docker build
 jobs:
   docker-build:
