@@ -12,6 +12,6 @@ jobs:
     - name: Docker Build
       run: docker build -t atlantis .
     - name: Docker Tag
-      run: docker tag atlantis uwitedm/atlantis --no-sha --no-latest
+      run: docker tag atlantis uwitedm/atlantis
     - name: Docker push
       run: docker push uwitedm/atlantis
