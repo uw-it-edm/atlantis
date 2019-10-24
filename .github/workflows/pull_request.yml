@@ -10,6 +10,4 @@ jobs:
       with:
         args: action 'opened|synchronize'
     - name: Docker Build
-      uses: actions/docker/cli@86ff551d26008267bb89ac11198ba7f1d807b699
-      with:
-        args: build -t uw-it-edm/atlantis .
+      run: docker build -t uw-it-edm/atlantis .
