@@ -8,4 +8,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Docker Build
-      run: docker build -t uw-it-edm/atlantis .
+      run: docker build -t uwitedm/atlantis .
