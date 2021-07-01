@@ -1,4 +1,4 @@
-FROM runatlantis/atlantis:v0.10.0
+FROM runatlantis/atlantis:v0.17.2
 
 COPY credentials.sh /usr/local/bin/credentials.sh
 RUN chmod +x /usr/local/bin/credentials.sh
