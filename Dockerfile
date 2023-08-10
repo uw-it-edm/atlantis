@@ -2,7 +2,7 @@
 # see https://github.com/runatlantis/atlantis/issues/2201 for details
 # v0.18.4 was brought in by dependabot
 # v0.18.5 was not available from Dockerhub
-FROM runatlantis/atlantis:v0.18.3
+FROM runatlantis/atlantis:v0.18.4
 
 COPY credentials.sh /usr/local/bin/credentials.sh
 RUN chmod +x /usr/local/bin/credentials.sh
