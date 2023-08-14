@@ -1,8 +1,6 @@
-# change v0.18.4 to v0.18.3 as v0.18.4 had a bug to prevent container start
-# see https://github.com/runatlantis/atlantis/issues/2201 for details
-# v0.18.4 was brought in by dependabot
-# v0.18.5 was not available from Dockerhub
-FROM runatlantis/atlantis:v0.18.3
+# CAB-5994 upgrade atlantis to v0.25
+# atlantis moved from dockerhub to ghcr starting with 0.18.5
+FROM ghcr.io/runatlantis/atlantis:v0.25-alpine
 
 COPY credentials.sh /usr/local/bin/credentials.sh
 RUN chmod +x /usr/local/bin/credentials.sh
