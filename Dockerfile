@@ -1,6 +1,6 @@
 # CAB-5994 upgrade atlantis to v0.25
 # atlantis moved from dockerhub to ghcr starting with 0.18.5
-FROM ghcr.io/runatlantis/atlantis:v0.25-alpine
+FROM ghcr.io/runatlantis/atlantis:v0.26-alpine
 
 COPY credentials.sh /usr/local/bin/credentials.sh
 RUN chmod +x /usr/local/bin/credentials.sh
