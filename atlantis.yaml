@@ -16,27 +16,6 @@ workflows:
     apply:
       steps:
         - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt apply -no-color $PLANFILE
-  terragrunt-0-18:
-    plan:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.18 plan -no-color -out $PLANFILE 
-    apply:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.18 apply -no-color $PLANFILE
-  terragrunt-0-19:
-    plan:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.19 plan -no-color -out $PLANFILE 
-    apply:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.19 apply -no-color $PLANFILE
-  terragrunt-0-20:
-    plan:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.20 plan -no-color -out $PLANFILE
-    apply:
-      steps:
-        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.20 apply -no-color $PLANFILE
   terragrunt-0-48:
     plan:
       steps:
@@ -44,3 +23,10 @@ workflows:
     apply:
       steps:
         - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-0.48 apply -no-color $PLANFILE
+  terragrunt-1-1:
+    plan:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-1.1 plan -no-color -out $PLANFILE
+    apply:
+      steps:
+        - run: TERRAGRUNT_TFPATH=terraform$ATLANTIS_TERRAFORM_VERSION terragrunt-1.1 apply -no-color $PLANFILE
