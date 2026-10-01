@@ -1,7 +1,7 @@
 # CAB-7493 upgrade from v0.25 to v0.48
 # CAB-5994 upgrade atlantis to v0.25
 # atlantis moved from dockerhub to ghcr starting with 0.18.5
-FROM ghcr.io/runatlantis/atlantis:v0.48-alpine
+FROM ghcr.io/runatlantis/atlantis:v0.48-alpine@sha256:8dd77ed01565f797fe62922f4670398b16a094597b36dedd6e806490177fffd9
 
 # default build time user becomes atlantis starting with v0.27
 # Switch to root to run chmod and chown etc.
@@ -13,6 +13,7 @@ RUN chmod +x /usr/local/bin/credentials.sh
 COPY --chown=atlantis:atlantis gitconfig /home/atlantis/.gitconfig
 RUN chown atlantis:atlantis /home/atlantis/.gitconfig
 
+# copy terragrunt binary of the versions you need and validate checksum
 RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.48.6/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt-0.48 \
   && echo "23a54c6b13d001e3f295cfc30c0fe5e0a16263ec582f4ffd11526c2f497a863e  /usr/local/bin/terragrunt-0.48" \
   | sha256sum -c
